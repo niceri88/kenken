@@ -4,8 +4,6 @@
 
 package com.mycompany.kenken;
 
-
-
 /**
  *
  * @author nicol
@@ -14,7 +12,7 @@ public class Kenken {
 
     public static void main(String[] args) {
         vista.VentanaInicio ventanaInicio = new vista.VentanaInicio();
-        ventanaInicio.setVisible(true);
         ventanaInicio.setLocationRelativeTo(null);
+        ventanaInicio.setVisible(true);
     }
 }
