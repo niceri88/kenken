@@ -179,7 +179,7 @@ public class VentanaInicio extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         ConfigurarJuego configurarJuego = new ConfigurarJuego();
         configurarJuego.setLocationRelativeTo(null);    
-        configurarJuego.setVisible(true);    
+        configurarJuego.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
 

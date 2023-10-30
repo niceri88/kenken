@@ -529,6 +529,16 @@ public class ConfigurarJuego extends javax.swing.JFrame {
             verSonido.setVisible(true);
         }
         if (banderaDificultad && banderaReloj && banderaPanel && banderaSonido){
+            if (derecha.isSelected()){
+            VentanaJuegoDerecha ventanaJuegoDerecha = new VentanaJuegoDerecha();
+            ventanaJuegoDerecha.setLocationRelativeTo(null);
+            ventanaJuegoDerecha.setVisible(true);
+            }
+            else{
+            VentanaJuegoIzquierda ventanaJuegoIzquierda = new VentanaJuegoIzquierda();
+            ventanaJuegoIzquierda.setLocationRelativeTo(null);
+            ventanaJuegoIzquierda.setVisible(true);
+            }
             dispose();
         }
     }//GEN-LAST:event_btnComenzarActionPerformed
