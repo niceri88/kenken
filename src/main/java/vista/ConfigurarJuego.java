@@ -15,6 +15,14 @@ public class ConfigurarJuego extends javax.swing.JFrame {
      */
     public ConfigurarJuego() {
         initComponents();
+        verDificultad.setVisible(false);
+        verReloj.setVisible(false);
+        verPanel.setVisible(false);
+        verSonido.setVisible(false);
+        horas.setVisible(false);
+        minutos.setVisible(false);
+        segundos.setVisible(false);
+        lblSetTiempo.setVisible(false);
     }
 
     /**
@@ -44,6 +52,14 @@ public class ConfigurarJuego extends javax.swing.JFrame {
         si = new javax.swing.JCheckBox();
         no = new javax.swing.JCheckBox();
         btnComenzar = new javax.swing.JButton();
+        verDificultad = new javax.swing.JLabel();
+        verReloj = new javax.swing.JLabel();
+        verSonido = new javax.swing.JLabel();
+        verPanel = new javax.swing.JLabel();
+        lblSetTiempo = new javax.swing.JLabel();
+        horas = new javax.swing.JTextField();
+        minutos = new javax.swing.JTextField();
+        segundos = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -118,11 +134,6 @@ public class ConfigurarJuego extends javax.swing.JFrame {
         timer.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 timerItemStateChanged(evt);
-            }
-        });
-        timer.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                timerActionPerformed(evt);
             }
         });
 
@@ -203,6 +214,34 @@ public class ConfigurarJuego extends javax.swing.JFrame {
             }
         });
 
+        verDificultad.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        verDificultad.setForeground(new java.awt.Color(60, 63, 65));
+        verDificultad.setText("Seleccione uno");
+
+        verReloj.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        verReloj.setForeground(new java.awt.Color(60, 63, 65));
+        verReloj.setText("Seleccione uno");
+
+        verSonido.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        verSonido.setForeground(new java.awt.Color(60, 63, 65));
+        verSonido.setText("Seleccione uno");
+
+        verPanel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        verPanel.setForeground(new java.awt.Color(60, 63, 65));
+        verPanel.setText("Seleccione uno");
+
+        lblSetTiempo.setForeground(new java.awt.Color(60, 63, 65));
+        lblSetTiempo.setText("Hora     Minutos   Segundos");
+
+        horas.setBackground(new java.awt.Color(153, 153, 255));
+        horas.setForeground(new java.awt.Color(60, 63, 65));
+
+        minutos.setBackground(new java.awt.Color(153, 153, 255));
+        minutos.setForeground(new java.awt.Color(60, 63, 65));
+
+        segundos.setBackground(new java.awt.Color(153, 153, 255));
+        segundos.setForeground(new java.awt.Color(60, 63, 65));
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -219,6 +258,8 @@ public class ConfigurarJuego extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(no, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(si, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(verSonido)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnComenzar))
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -227,23 +268,41 @@ public class ConfigurarJuego extends javax.swing.JFrame {
                                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(cronometro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(timer, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(ninguno, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(ninguno, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(verReloj))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(cronometro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(timer, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblSetTiempo, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                                .addComponent(horas, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(minutos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(segundos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(medio, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(facil, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(dificil, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(dificil, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(medio, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(verDificultad))))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(derecha, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(izquierda, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(derecha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(izquierda, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addComponent(verPanel)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -255,35 +314,53 @@ public class ConfigurarJuego extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(facil))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(medio)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(medio)
+                    .addComponent(verDificultad))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(dificil)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(cronometro)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cronometro)
+                            .addComponent(lblSetTiempo))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(timer)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(timer)
+                            .addComponent(horas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(minutos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(segundos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ninguno)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(ninguno)
+                            .addComponent(verReloj))))
                 .addGap(20, 20, 20)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnComenzar, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnComenzar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(izquierda)
-                            .addComponent(jLabel4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(derecha)
-                        .addGap(18, 18, 18)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(izquierda)
+                                    .addComponent(jLabel4))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(derecha))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(14, 14, 14)
+                                .addComponent(verPanel)))
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(si))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(no)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5)
+                                    .addComponent(si))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(no))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(31, 31, 31)
+                                .addComponent(verSonido)))
                         .addGap(0, 6, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
                 .addComponent(btnRetorno)
@@ -335,43 +412,69 @@ public class ConfigurarJuego extends javax.swing.JFrame {
     private void dificilItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_dificilItemStateChanged
         facil.setSelected(false);
         medio.setSelected(false);
+        verDificultad.setVisible(false);
     }//GEN-LAST:event_dificilItemStateChanged
 
     private void medioItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_medioItemStateChanged
         facil.setSelected(false);
         dificil.setSelected(false);
+        verDificultad.setVisible(false);
     }//GEN-LAST:event_medioItemStateChanged
 
     private void facilItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_facilItemStateChanged
         medio.setSelected(false);
         dificil.setSelected(false);
+        verDificultad.setVisible(false);
     }//GEN-LAST:event_facilItemStateChanged
 
     private void cronometroItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cronometroItemStateChanged
         timer.setSelected(false);
         ninguno.setSelected(false);
+        verReloj.setVisible(false);
+        horas.setVisible(false);
+        minutos.setVisible(false);
+        segundos.setVisible(false);
+        lblSetTiempo.setVisible(false);
     }//GEN-LAST:event_cronometroItemStateChanged
 
     private void timerItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_timerItemStateChanged
         cronometro.setSelected(false);
         ninguno.setSelected(false);
+        verReloj.setVisible(false);
+        if (timer.isSelected()){
+            lblSetTiempo.setVisible(true);
+            horas.setVisible(true);
+            minutos.setVisible(true);
+            segundos.setVisible(true);
+            lblSetTiempo.setVisible(true);
+        }
+        else{
+            lblSetTiempo.setVisible(false);
+            horas.setVisible(false);
+            minutos.setVisible(false);
+            segundos.setVisible(false);
+            lblSetTiempo.setVisible(false);
+        }
     }//GEN-LAST:event_timerItemStateChanged
-
-    private void timerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timerActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_timerActionPerformed
 
     private void ningunoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ningunoItemStateChanged
         timer.setSelected(false);
         cronometro.setSelected(false);
+        verReloj.setVisible(false);
+        horas.setVisible(false);
+        minutos.setVisible(false);
+        segundos.setVisible(false);
+        lblSetTiempo.setVisible(false);
     }//GEN-LAST:event_ningunoItemStateChanged
 
     private void izquierdaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_izquierdaItemStateChanged
         derecha.setSelected(false);
+        verPanel.setVisible(false);
     }//GEN-LAST:event_izquierdaItemStateChanged
 
     private void derechaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_derechaItemStateChanged
         izquierda.setSelected(false);
+        verPanel.setVisible(false);
     }//GEN-LAST:event_derechaItemStateChanged
 
     private void derechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_derechaActionPerformed
@@ -380,10 +483,12 @@ public class ConfigurarJuego extends javax.swing.JFrame {
 
     private void siItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_siItemStateChanged
         no.setSelected(false);
+        verSonido.setVisible(false);
     }//GEN-LAST:event_siItemStateChanged
 
     private void noItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_noItemStateChanged
         si.setSelected(false);
+        verSonido.setVisible(false);
     }//GEN-LAST:event_noItemStateChanged
 
     private void noActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noActionPerformed
@@ -395,7 +500,37 @@ public class ConfigurarJuego extends javax.swing.JFrame {
     }//GEN-LAST:event_siActionPerformed
 
     private void btnComenzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComenzarActionPerformed
-        // TODO add your handling code here:
+        boolean banderaDificultad = false;
+        boolean banderaReloj = false;
+        boolean banderaPanel = false;
+        boolean banderaSonido = false;
+        if (facil.isSelected() || medio.isSelected() || dificil.isSelected()){
+            banderaDificultad = true;
+        }
+        else{
+            verDificultad.setVisible(true);
+        }
+        if (cronometro.isSelected() || timer.isSelected() || ninguno.isSelected()){
+            banderaReloj = true;
+        }
+        else{
+            verReloj.setVisible(true);
+        }
+        if (izquierda.isSelected() || derecha.isSelected()){
+            banderaPanel = true;
+        }
+        else{
+            verPanel.setVisible(true);
+        }
+        if (no.isSelected() || si.isSelected()){
+            banderaSonido = true;
+        }
+        else{
+            verSonido.setVisible(true);
+        }
+        if (banderaDificultad && banderaReloj && banderaPanel && banderaSonido){
+            dispose();
+        }
     }//GEN-LAST:event_btnComenzarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -405,6 +540,7 @@ public class ConfigurarJuego extends javax.swing.JFrame {
     private javax.swing.JCheckBox derecha;
     private javax.swing.JCheckBox dificil;
     private javax.swing.JCheckBox facil;
+    private javax.swing.JTextField horas;
     private javax.swing.JCheckBox izquierda;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -413,10 +549,17 @@ public class ConfigurarJuego extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel lblSetTiempo;
     private javax.swing.JCheckBox medio;
+    private javax.swing.JTextField minutos;
     private javax.swing.JCheckBox ninguno;
     private javax.swing.JCheckBox no;
+    private javax.swing.JTextField segundos;
     private javax.swing.JCheckBox si;
     private javax.swing.JCheckBox timer;
+    private javax.swing.JLabel verDificultad;
+    private javax.swing.JLabel verPanel;
+    private javax.swing.JLabel verReloj;
+    private javax.swing.JLabel verSonido;
     // End of variables declaration//GEN-END:variables
 }
