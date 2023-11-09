@@ -1511,7 +1511,6 @@ public class VentanaJuego extends javax.swing.JFrame {
             }
         }
     }
-    
     private void kenken33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kenken33ActionPerformed
         activarBotones();
     }//GEN-LAST:event_kenken33ActionPerformed
@@ -2166,7 +2165,7 @@ public class VentanaJuego extends javax.swing.JFrame {
         if (juegoTerminado){
             if (Datos.getConfiguracion().getSonidoFinal()[0]){
                 try {
-                    File archivoSonido = new File("sonidos/marioBros.wav");
+                    File archivoSonido = new File("sonidos/sonidoVictoria.wav");
                     AudioInputStream audioIn = AudioSystem.getAudioInputStream(archivoSonido);
                     Clip sonido = AudioSystem.getClip();
                     sonido.open(audioIn);

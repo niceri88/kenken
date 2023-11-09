@@ -15,7 +15,11 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+/**
+ * La clase LeerPartidas proporciona métodos para leer datos de partidas desde un archivo XML.
+ */
 public class LeerPartidas {
+    // Método privado para contar las etiquetas con un nombre específico en el documento XML
     private static int contarEtiquetas(Node node, String nombreEtiqueta) {
         int contador = 0;
         if (node.getNodeType() == Node.ELEMENT_NODE) {
@@ -31,6 +35,9 @@ public class LeerPartidas {
         return contador;
     }
     
+    /**
+     * Método para leer datos de partidas desde un archivo XML y agregarlas a la lista de partidas en Datos.
+     */
     public static void guardarDatos(){
         try{
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
