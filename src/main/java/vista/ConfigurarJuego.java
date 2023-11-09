@@ -1,28 +1,72 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package vista;
 
-/**
- *
- * @author nicol
- */
+import modelo.Datos;
+import controlador.Configuracion;
+import javax.swing.JOptionPane;
+
 public class ConfigurarJuego extends javax.swing.JFrame {
 
-    /**
-     * Creates new form ConfigurarJuego
-     */
     public ConfigurarJuego() {
+        super("Configuracion de juego");
         initComponents();
-        verDificultad.setVisible(false);
-        verReloj.setVisible(false);
-        verPanel.setVisible(false);
-        verSonido.setVisible(false);
+        labelHoras.setVisible(false);
         horas.setVisible(false);
-        minutos.setVisible(false);
-        segundos.setVisible(false);
-        lblSetTiempo.setVisible(false);
+        labelMin.setVisible(false);
+        min.setVisible(false);
+        labelSec.setVisible(false);
+        sec.setVisible(false);
+        botonConfirmar.setVisible(false);
+        Configuracion configuraciones = Datos.getConfiguracion();
+        if (configuraciones.getDificultad()[0] == true){
+            botonFacil.setSelected(true);
+        }
+        else if (configuraciones.getDificultad()[1] == true){
+            botonMedio.setSelected(true);
+        }
+        else if (configuraciones.getDificultad()[2] == true){
+            botonDificil.setSelected(true);
+        }
+        if (configuraciones.getReloj()[0] == true){
+            botonCronometro.setSelected(true);
+        }
+        else if (configuraciones.getReloj()[1] == true){
+            botonTimer.setSelected(true);
+            labelHoras.setVisible(true);
+            horas.setVisible(true);
+            labelMin.setVisible(true);
+            min.setVisible(true);
+            labelSec.setVisible(true);
+            sec.setVisible(true);
+            botonConfirmar.setVisible(true);}
+        else if (configuraciones.getReloj()[2] == true){
+            botonNoReloj.setSelected(true);
+        }
+        if (configuraciones.getPosicionDelPanel()[0] == true){
+            botonIzquierda.setSelected(true);
+        }
+        else if (configuraciones.getPosicionDelPanel()[1] == true){
+            botonDerecha.setSelected(true);
+        }
+        if (configuraciones.getSonidoFinal()[0] == true){
+            botonSiPartida.setSelected(true);
+        }
+        else if (configuraciones.getSonidoFinal()[1] == true){
+            botonNoPartida.setSelected(true);
+        }
+        if (botonTimer.isSelected()){
+            if (Datos.getTimer().getHoras() != -1){
+                String cantidadHoras = String.valueOf(Datos.getTimer().getHoras());
+                horas.setText(cantidadHoras);
+            }
+            if (Datos.getTimer().getMinutos() != -1){
+                String cantidadMinutos = String.valueOf(Datos.getTimer().getMinutos());
+                min.setText(cantidadMinutos);
+            }
+            if (Datos.getTimer().getSegundos() != -1){
+                String cantidadSegundos = String.valueOf(Datos.getTimer().getSegundos());
+                sec.setText(cantidadSegundos);
+            }
+        }
     }
 
     /**
@@ -34,524 +78,527 @@ public class ConfigurarJuego extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        grupoDificultad = new javax.swing.ButtonGroup();
+        grupoReloj = new javax.swing.ButtonGroup();
+        grupoPanel = new javax.swing.ButtonGroup();
+        grupoSonido = new javax.swing.ButtonGroup();
         jPanel2 = new javax.swing.JPanel();
-        btnRetorno = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        facil = new javax.swing.JCheckBox();
-        medio = new javax.swing.JCheckBox();
-        dificil = new javax.swing.JCheckBox();
-        jLabel3 = new javax.swing.JLabel();
-        cronometro = new javax.swing.JCheckBox();
-        timer = new javax.swing.JCheckBox();
-        ninguno = new javax.swing.JCheckBox();
-        jLabel4 = new javax.swing.JLabel();
-        izquierda = new javax.swing.JCheckBox();
-        derecha = new javax.swing.JCheckBox();
-        jLabel5 = new javax.swing.JLabel();
-        si = new javax.swing.JCheckBox();
-        no = new javax.swing.JCheckBox();
-        btnComenzar = new javax.swing.JButton();
-        verDificultad = new javax.swing.JLabel();
-        verReloj = new javax.swing.JLabel();
-        verSonido = new javax.swing.JLabel();
-        verPanel = new javax.swing.JLabel();
-        lblSetTiempo = new javax.swing.JLabel();
-        horas = new javax.swing.JTextField();
-        minutos = new javax.swing.JTextField();
-        segundos = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
+        botonFacil = new javax.swing.JRadioButton();
+        botonMedio = new javax.swing.JRadioButton();
+        botonDificil = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        botonCronometro = new javax.swing.JRadioButton();
+        jLabel4 = new javax.swing.JLabel();
+        botonDerecha = new javax.swing.JRadioButton();
+        botonIzquierda = new javax.swing.JRadioButton();
+        jLabel5 = new javax.swing.JLabel();
+        botonSiPartida = new javax.swing.JRadioButton();
+        botonNoPartida = new javax.swing.JRadioButton();
+        botonTimer = new javax.swing.JRadioButton();
+        botonNoReloj = new javax.swing.JRadioButton();
+        botonAtras = new javax.swing.JToggleButton();
+        min = new javax.swing.JTextField();
+        labelMin = new javax.swing.JLabel();
+        sec = new javax.swing.JTextField();
+        labelSec = new javax.swing.JLabel();
+        horas = new javax.swing.JTextField();
+        labelHoras = new javax.swing.JLabel();
+        botonConfirmar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 255));
-        jPanel1.setForeground(new java.awt.Color(153, 153, 255));
+        jPanel2.setBackground(new java.awt.Color(153, 153, 255));
 
-        jPanel2.setBackground(new java.awt.Color(204, 204, 255));
-        jPanel2.setForeground(new java.awt.Color(204, 204, 255));
+        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel1.setForeground(new java.awt.Color(204, 204, 255));
 
-        btnRetorno.setBackground(new java.awt.Color(153, 153, 255));
-        btnRetorno.setForeground(new java.awt.Color(60, 63, 65));
-        btnRetorno.setText("Retorno");
-        btnRetorno.addActionListener(new java.awt.event.ActionListener() {
+        botonFacil.setBackground(new java.awt.Color(204, 204, 255));
+        grupoDificultad.add(botonFacil);
+        botonFacil.setForeground(new java.awt.Color(60, 63, 65));
+        botonFacil.setSelected(true);
+        botonFacil.setText("Facil");
+        botonFacil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRetornoActionPerformed(evt);
+                botonFacilActionPerformed(evt);
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(60, 63, 65));
-        jLabel2.setText("Dificultad");
-
-        facil.setForeground(new java.awt.Color(60, 63, 65));
-        facil.setText("Facil");
-        facil.setContentAreaFilled(false);
-        facil.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                facilItemStateChanged(evt);
-            }
-        });
-
-        medio.setForeground(new java.awt.Color(60, 63, 65));
-        medio.setText("Medio");
-        medio.setContentAreaFilled(false);
-        medio.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                medioItemStateChanged(evt);
-            }
-        });
-        medio.addActionListener(new java.awt.event.ActionListener() {
+        botonMedio.setBackground(new java.awt.Color(204, 204, 255));
+        grupoDificultad.add(botonMedio);
+        botonMedio.setForeground(new java.awt.Color(60, 63, 65));
+        botonMedio.setText("Medio");
+        botonMedio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                medioActionPerformed(evt);
+                botonMedioActionPerformed(evt);
             }
         });
 
-        dificil.setForeground(new java.awt.Color(60, 63, 65));
-        dificil.setText("Dificil");
-        dificil.setContentAreaFilled(false);
-        dificil.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                dificilItemStateChanged(evt);
+        botonDificil.setBackground(new java.awt.Color(204, 204, 255));
+        grupoDificultad.add(botonDificil);
+        botonDificil.setForeground(new java.awt.Color(60, 63, 65));
+        botonDificil.setText("Dificil");
+        botonDificil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonDificilActionPerformed(evt);
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(60, 63, 65));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Dificultad");
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(60, 63, 65));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Reloj");
 
-        cronometro.setForeground(new java.awt.Color(60, 63, 65));
-        cronometro.setText("Cronometro");
-        cronometro.setContentAreaFilled(false);
-        cronometro.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                cronometroItemStateChanged(evt);
+        botonCronometro.setBackground(new java.awt.Color(204, 204, 255));
+        grupoReloj.add(botonCronometro);
+        botonCronometro.setForeground(new java.awt.Color(60, 63, 65));
+        botonCronometro.setSelected(true);
+        botonCronometro.setText("Cronómetro");
+        botonCronometro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCronometroActionPerformed(evt);
             }
         });
 
-        timer.setForeground(new java.awt.Color(60, 63, 65));
-        timer.setText("Timer");
-        timer.setContentAreaFilled(false);
-        timer.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                timerItemStateChanged(evt);
-            }
-        });
-
-        ninguno.setForeground(new java.awt.Color(60, 63, 65));
-        ninguno.setText("Ninguno");
-        ninguno.setContentAreaFilled(false);
-        ninguno.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                ningunoItemStateChanged(evt);
-            }
-        });
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(60, 63, 65));
-        jLabel4.setText("Posicion de panel");
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Posición del panel");
 
-        izquierda.setForeground(new java.awt.Color(60, 63, 65));
-        izquierda.setText("Izquierda");
-        izquierda.setContentAreaFilled(false);
-        izquierda.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                izquierdaItemStateChanged(evt);
-            }
-        });
-
-        derecha.setForeground(new java.awt.Color(60, 63, 65));
-        derecha.setText("Derecha");
-        derecha.setContentAreaFilled(false);
-        derecha.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                derechaItemStateChanged(evt);
-            }
-        });
-        derecha.addActionListener(new java.awt.event.ActionListener() {
+        botonDerecha.setBackground(new java.awt.Color(204, 204, 255));
+        grupoPanel.add(botonDerecha);
+        botonDerecha.setForeground(new java.awt.Color(60, 63, 65));
+        botonDerecha.setText("Derecha");
+        botonDerecha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                derechaActionPerformed(evt);
+                botonDerechaActionPerformed(evt);
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        botonIzquierda.setBackground(new java.awt.Color(204, 204, 255));
+        grupoPanel.add(botonIzquierda);
+        botonIzquierda.setForeground(new java.awt.Color(60, 63, 65));
+        botonIzquierda.setSelected(true);
+        botonIzquierda.setText("Izquierda");
+        botonIzquierda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonIzquierdaActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(60, 63, 65));
-        jLabel5.setText("Sonido de victoria");
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Sonido de partida");
 
-        si.setForeground(new java.awt.Color(60, 63, 65));
-        si.setText("Si");
-        si.setContentAreaFilled(false);
-        si.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                siItemStateChanged(evt);
-            }
-        });
-        si.addActionListener(new java.awt.event.ActionListener() {
+        botonSiPartida.setBackground(new java.awt.Color(204, 204, 255));
+        grupoSonido.add(botonSiPartida);
+        botonSiPartida.setForeground(new java.awt.Color(60, 63, 65));
+        botonSiPartida.setSelected(true);
+        botonSiPartida.setText("Si");
+        botonSiPartida.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                siActionPerformed(evt);
+                botonSiPartidaActionPerformed(evt);
             }
         });
 
-        no.setForeground(new java.awt.Color(60, 63, 65));
-        no.setText("No");
-        no.setContentAreaFilled(false);
-        no.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                noItemStateChanged(evt);
-            }
-        });
-        no.addActionListener(new java.awt.event.ActionListener() {
+        botonNoPartida.setBackground(new java.awt.Color(204, 204, 255));
+        grupoSonido.add(botonNoPartida);
+        botonNoPartida.setForeground(new java.awt.Color(60, 63, 65));
+        botonNoPartida.setText("No");
+        botonNoPartida.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                noActionPerformed(evt);
+                botonNoPartidaActionPerformed(evt);
             }
         });
 
-        btnComenzar.setBackground(new java.awt.Color(153, 153, 255));
-        btnComenzar.setForeground(new java.awt.Color(60, 63, 65));
-        btnComenzar.setText("Comenzar juego");
-        btnComenzar.addActionListener(new java.awt.event.ActionListener() {
+        botonTimer.setBackground(new java.awt.Color(204, 204, 255));
+        grupoReloj.add(botonTimer);
+        botonTimer.setForeground(new java.awt.Color(60, 63, 65));
+        botonTimer.setText("Timer");
+        botonTimer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnComenzarActionPerformed(evt);
+                botonTimerActionPerformed(evt);
             }
         });
 
-        verDificultad.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        verDificultad.setForeground(new java.awt.Color(60, 63, 65));
-        verDificultad.setText("Seleccione uno");
+        botonNoReloj.setBackground(new java.awt.Color(204, 204, 255));
+        grupoReloj.add(botonNoReloj);
+        botonNoReloj.setForeground(new java.awt.Color(60, 63, 65));
+        botonNoReloj.setText("No");
+        botonNoReloj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonNoRelojActionPerformed(evt);
+            }
+        });
 
-        verReloj.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        verReloj.setForeground(new java.awt.Color(60, 63, 65));
-        verReloj.setText("Seleccione uno");
+        botonAtras.setBackground(new java.awt.Color(153, 153, 255));
+        botonAtras.setFont(new java.awt.Font("UD Digi Kyokasho N-B", 0, 12)); // NOI18N
+        botonAtras.setForeground(new java.awt.Color(60, 63, 65));
+        botonAtras.setText("Retorno");
+        botonAtras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAtrasActionPerformed(evt);
+            }
+        });
 
-        verSonido.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        verSonido.setForeground(new java.awt.Color(60, 63, 65));
-        verSonido.setText("Seleccione uno");
+        min.setBackground(new java.awt.Color(153, 153, 255));
+        min.setForeground(new java.awt.Color(60, 63, 65));
+        min.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                minActionPerformed(evt);
+            }
+        });
 
-        verPanel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        verPanel.setForeground(new java.awt.Color(60, 63, 65));
-        verPanel.setText("Seleccione uno");
+        labelMin.setForeground(new java.awt.Color(60, 63, 65));
+        labelMin.setText("minutos");
 
-        lblSetTiempo.setForeground(new java.awt.Color(60, 63, 65));
-        lblSetTiempo.setText("Hora     Minutos   Segundos");
+        sec.setBackground(new java.awt.Color(153, 153, 255));
+        sec.setForeground(new java.awt.Color(60, 63, 65));
+        sec.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                secActionPerformed(evt);
+            }
+        });
+
+        labelSec.setForeground(new java.awt.Color(60, 63, 65));
+        labelSec.setText("segundos");
 
         horas.setBackground(new java.awt.Color(153, 153, 255));
         horas.setForeground(new java.awt.Color(60, 63, 65));
+        horas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                horasActionPerformed(evt);
+            }
+        });
 
-        minutos.setBackground(new java.awt.Color(153, 153, 255));
-        minutos.setForeground(new java.awt.Color(60, 63, 65));
+        labelHoras.setForeground(new java.awt.Color(60, 63, 65));
+        labelHoras.setText("horas");
 
-        segundos.setBackground(new java.awt.Color(153, 153, 255));
-        segundos.setForeground(new java.awt.Color(60, 63, 65));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnRetorno, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(no, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(si, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(verSonido)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnComenzar))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(ninguno, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(verReloj))
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(cronometro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(timer, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lblSetTiempo, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                                .addComponent(horas, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(minutos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(segundos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(facil, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(dificil, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(medio, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(verDificultad))))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(derecha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(izquierda, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addComponent(verPanel)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(facil))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(medio)
-                    .addComponent(verDificultad))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(dificil)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cronometro)
-                            .addComponent(lblSetTiempo))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(timer)
-                            .addComponent(horas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(minutos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(segundos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(ninguno)
-                            .addComponent(verReloj))))
-                .addGap(20, 20, 20)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnComenzar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(izquierda)
-                                    .addComponent(jLabel4))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(derecha))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(14, 14, 14)
-                                .addComponent(verPanel)))
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(si))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(no))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(31, 31, 31)
-                                .addComponent(verSonido)))
-                        .addGap(0, 6, Short.MAX_VALUE)))
-                .addGap(18, 18, 18)
-                .addComponent(btnRetorno)
-                .addContainerGap())
-        );
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(60, 63, 65));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Configuracion de Juego");
+        botonConfirmar.setBackground(new java.awt.Color(153, 153, 255));
+        botonConfirmar.setForeground(new java.awt.Color(60, 63, 65));
+        botonConfirmar.setText("OK");
+        botonConfirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonConfirmarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(botonTimer)
+                                    .addComponent(botonCronometro))
+                                .addGap(17, 17, 17)
+                                .addComponent(labelHoras)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(horas, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(labelMin)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(min, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(botonNoReloj)
+                                .addGap(173, 173, 173)
+                                .addComponent(botonConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(labelSec)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(sec, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 66, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel1)
+                                        .addGap(18, 18, 18)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(botonDificil)
+                                            .addComponent(botonMedio)
+                                            .addComponent(botonFacil))))
+                                .addGap(42, 42, 42)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(botonIzquierda)
+                                    .addComponent(botonDerecha))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addGap(34, 34, 34)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(botonNoPartida)
+                                    .addComponent(botonSiPartida))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(botonAtras)))
+                        .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(botonFacil))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(botonMedio)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(botonDificil)
+                .addGap(28, 28, 28)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelHoras)
+                            .addComponent(horas, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelMin)
+                            .addComponent(min, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelSec)
+                            .addComponent(sec, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(botonConfirmar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGap(4, 4, 4)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(botonCronometro))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(botonTimer)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(botonNoReloj)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(botonIzquierda))
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(botonDerecha)
+                .addGap(26, 26, 26)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(botonAtras, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel5)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(botonSiPartida)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(botonNoPartida))))
+                .addContainerGap())
+        );
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(60, 63, 65));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Configuracion de juego");
+        jLabel2.setToolTipText("");
+        jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnRetornoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetornoActionPerformed
-        dispose();
-    }//GEN-LAST:event_btnRetornoActionPerformed
+    private void botonFacilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonFacilActionPerformed
+        Datos.agregarDificultadConfiguracion(0);
+    }//GEN-LAST:event_botonFacilActionPerformed
 
-    private void medioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_medioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_medioActionPerformed
+    private void botonMedioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMedioActionPerformed
+        Datos.agregarDificultadConfiguracion(1);
+    }//GEN-LAST:event_botonMedioActionPerformed
 
-    private void dificilItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_dificilItemStateChanged
-        facil.setSelected(false);
-        medio.setSelected(false);
-        verDificultad.setVisible(false);
-    }//GEN-LAST:event_dificilItemStateChanged
+    private void botonDificilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonDificilActionPerformed
+        Datos.agregarDificultadConfiguracion(2);
+    }//GEN-LAST:event_botonDificilActionPerformed
 
-    private void medioItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_medioItemStateChanged
-        facil.setSelected(false);
-        dificil.setSelected(false);
-        verDificultad.setVisible(false);
-    }//GEN-LAST:event_medioItemStateChanged
-
-    private void facilItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_facilItemStateChanged
-        medio.setSelected(false);
-        dificil.setSelected(false);
-        verDificultad.setVisible(false);
-    }//GEN-LAST:event_facilItemStateChanged
-
-    private void cronometroItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cronometroItemStateChanged
-        timer.setSelected(false);
-        ninguno.setSelected(false);
-        verReloj.setVisible(false);
+    private void botonCronometroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCronometroActionPerformed
+        Datos.agregarRelojConfiguracion(0);
+        labelHoras.setVisible(false);
         horas.setVisible(false);
-        minutos.setVisible(false);
-        segundos.setVisible(false);
-        lblSetTiempo.setVisible(false);
-    }//GEN-LAST:event_cronometroItemStateChanged
+        labelMin.setVisible(false);
+        min.setVisible(false);
+        labelSec.setVisible(false);
+        sec.setVisible(false);
+        botonConfirmar.setVisible(false);
+        Datos.quitarHorasTimer();
+        Datos.quitarMinutosTimer();
+        Datos.quitarSegundosTimer();
+    }//GEN-LAST:event_botonCronometroActionPerformed
 
-    private void timerItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_timerItemStateChanged
-        cronometro.setSelected(false);
-        ninguno.setSelected(false);
-        verReloj.setVisible(false);
-        if (timer.isSelected()){
-            lblSetTiempo.setVisible(true);
-            horas.setVisible(true);
-            minutos.setVisible(true);
-            segundos.setVisible(true);
-            lblSetTiempo.setVisible(true);
-        }
-        else{
-            lblSetTiempo.setVisible(false);
-            horas.setVisible(false);
-            minutos.setVisible(false);
-            segundos.setVisible(false);
-            lblSetTiempo.setVisible(false);
-        }
-    }//GEN-LAST:event_timerItemStateChanged
+    private void botonDerechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonDerechaActionPerformed
+        Datos.agregarPosicionDePanelConfiguracion(1);
+    }//GEN-LAST:event_botonDerechaActionPerformed
 
-    private void ningunoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ningunoItemStateChanged
-        timer.setSelected(false);
-        cronometro.setSelected(false);
-        verReloj.setVisible(false);
+    private void botonIzquierdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIzquierdaActionPerformed
+        Datos.agregarPosicionDePanelConfiguracion(0);
+    }//GEN-LAST:event_botonIzquierdaActionPerformed
+
+    private void botonSiPartidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSiPartidaActionPerformed
+        Datos.agregarSonidoFinalConfiguracion(0);
+    }//GEN-LAST:event_botonSiPartidaActionPerformed
+
+    private void botonNoPartidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonNoPartidaActionPerformed
+        Datos.agregarSonidoFinalConfiguracion(1);
+    }//GEN-LAST:event_botonNoPartidaActionPerformed
+
+    private void botonTimerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonTimerActionPerformed
+        Datos.agregarRelojConfiguracion(1);
+        labelHoras.setVisible(true);
+        horas.setVisible(true);
+        labelMin.setVisible(true);
+        min.setVisible(true);
+        labelSec.setVisible(true);
+        sec.setVisible(true);
+        botonConfirmar.setVisible(true);
+    }//GEN-LAST:event_botonTimerActionPerformed
+
+    private void botonNoRelojActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonNoRelojActionPerformed
+        Datos.agregarRelojConfiguracion(2);
+        labelHoras.setVisible(false);
         horas.setVisible(false);
-        minutos.setVisible(false);
-        segundos.setVisible(false);
-        lblSetTiempo.setVisible(false);
-    }//GEN-LAST:event_ningunoItemStateChanged
+        labelMin.setVisible(false);
+        min.setVisible(false);
+        labelSec.setVisible(false);
+        sec.setVisible(false);
+        botonConfirmar.setVisible(false);
+        Datos.quitarHorasTimer();
+        Datos.quitarMinutosTimer();
+        Datos.quitarSegundosTimer();
+    }//GEN-LAST:event_botonNoRelojActionPerformed
 
-    private void izquierdaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_izquierdaItemStateChanged
-        derecha.setSelected(false);
-        verPanel.setVisible(false);
-    }//GEN-LAST:event_izquierdaItemStateChanged
-
-    private void derechaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_derechaItemStateChanged
-        izquierda.setSelected(false);
-        verPanel.setVisible(false);
-    }//GEN-LAST:event_derechaItemStateChanged
-
-    private void derechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_derechaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_derechaActionPerformed
-
-    private void siItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_siItemStateChanged
-        no.setSelected(false);
-        verSonido.setVisible(false);
-    }//GEN-LAST:event_siItemStateChanged
-
-    private void noItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_noItemStateChanged
-        si.setSelected(false);
-        verSonido.setVisible(false);
-    }//GEN-LAST:event_noItemStateChanged
-
-    private void noActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_noActionPerformed
-
-    private void siActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_siActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_siActionPerformed
-
-    private void btnComenzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComenzarActionPerformed
-        boolean banderaDificultad = false;
-        boolean banderaReloj = false;
-        boolean banderaPanel = false;
-        boolean banderaSonido = false;
-        if (facil.isSelected() || medio.isSelected() || dificil.isSelected()){
-            banderaDificultad = true;
-        }
-        else{
-            verDificultad.setVisible(true);
-        }
-        if (cronometro.isSelected() || timer.isSelected() || ninguno.isSelected()){
-            banderaReloj = true;
-        }
-        else{
-            verReloj.setVisible(true);
-        }
-        if (izquierda.isSelected() || derecha.isSelected()){
-            banderaPanel = true;
-        }
-        else{
-            verPanel.setVisible(true);
-        }
-        if (no.isSelected() || si.isSelected()){
-            banderaSonido = true;
-        }
-        else{
-            verSonido.setVisible(true);
-        }
-        if (banderaDificultad && banderaReloj && banderaPanel && banderaSonido){
-            if (derecha.isSelected()){
-            VentanaJuegoDerecha ventanaJuegoDerecha = new VentanaJuegoDerecha();
-            ventanaJuegoDerecha.setLocationRelativeTo(null);
-            ventanaJuegoDerecha.setVisible(true);
+    private void botonAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAtrasActionPerformed
+        if (botonTimer.isSelected()){
+            if (Datos.getTimer().getHoras() != -1 && Datos.getTimer().getMinutos() != -1 && Datos.getTimer().getSegundos() != -1){
+                VentanaInicio menu = new VentanaInicio();
+                menu.setVisible(true);
+                menu.setLocationRelativeTo(null);
+                this.setVisible(false);
+                this.dispose();
             }
             else{
-            VentanaJuegoIzquierda ventanaJuegoIzquierda = new VentanaJuegoIzquierda();
-            ventanaJuegoIzquierda.setLocationRelativeTo(null);
-            ventanaJuegoIzquierda.setVisible(true);
+                JOptionPane.showMessageDialog(null, "Valores invalidos", "Configuracion", JOptionPane.ERROR_MESSAGE);
             }
-            dispose();
         }
-    }//GEN-LAST:event_btnComenzarActionPerformed
+        else{
+            VentanaInicio menu = new VentanaInicio();
+            menu.setVisible(true);
+            menu.setLocationRelativeTo(null);
+            this.setVisible(false);
+            this.dispose();
+        }
+    }//GEN-LAST:event_botonAtrasActionPerformed
 
+    private void minActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_minActionPerformed
+
+    private void secActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_secActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_secActionPerformed
+
+    private void horasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_horasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_horasActionPerformed
+
+    private void botonConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonConfirmarActionPerformed
+        String inputHoras = horas.getText();
+        String inputMinutos = min.getText();
+        String inputSegundos = sec.getText();
+        boolean sonNumeros = true;
+        int numHoras = -1;
+        boolean banderaHoras = false;
+        int numMinutos = -1;
+        boolean banderaMinutos = false;
+        int numSegundos = -1;
+        boolean banderaSegundos = false;
+        try{
+            numHoras = Integer.parseInt(inputHoras);
+            numMinutos = Integer.parseInt(inputMinutos);
+            numSegundos = Integer.parseInt(inputSegundos);
+        }
+        catch (NumberFormatException e){
+            sonNumeros = false;
+        }
+        if (sonNumeros = true){
+            if (0 <= numHoras && numHoras <= 5){
+                banderaHoras = true;
+            }
+            if (0 <= numMinutos && numMinutos <= 60){
+                banderaMinutos = true;
+            }
+            if (0 <= numSegundos && numSegundos <= 60){
+                banderaSegundos = true;
+            }
+        }
+        if (banderaHoras && banderaMinutos && banderaSegundos){
+            Datos.agregarHorasTimer(numHoras);
+            Datos.agregarMinutosTimer(numMinutos);
+            Datos.agregarSegundosTimer(numSegundos);
+            JOptionPane.showMessageDialog(this, "Timer configurado", "Configuracion", JOptionPane.INFORMATION_MESSAGE);
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Valores invalidos", "Configuracion", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_botonConfirmarActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnComenzar;
-    private javax.swing.JButton btnRetorno;
-    private javax.swing.JCheckBox cronometro;
-    private javax.swing.JCheckBox derecha;
-    private javax.swing.JCheckBox dificil;
-    private javax.swing.JCheckBox facil;
+    private javax.swing.JToggleButton botonAtras;
+    private javax.swing.JButton botonConfirmar;
+    private javax.swing.JRadioButton botonCronometro;
+    private javax.swing.JRadioButton botonDerecha;
+    private javax.swing.JRadioButton botonDificil;
+    private javax.swing.JRadioButton botonFacil;
+    private javax.swing.JRadioButton botonIzquierda;
+    private javax.swing.JRadioButton botonMedio;
+    private javax.swing.JRadioButton botonNoPartida;
+    private javax.swing.JRadioButton botonNoReloj;
+    private javax.swing.JRadioButton botonSiPartida;
+    private javax.swing.JRadioButton botonTimer;
+    private javax.swing.ButtonGroup grupoDificultad;
+    private javax.swing.ButtonGroup grupoPanel;
+    private javax.swing.ButtonGroup grupoReloj;
+    private javax.swing.ButtonGroup grupoSonido;
     private javax.swing.JTextField horas;
-    private javax.swing.JCheckBox izquierda;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -559,17 +606,10 @@ public class ConfigurarJuego extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel lblSetTiempo;
-    private javax.swing.JCheckBox medio;
-    private javax.swing.JTextField minutos;
-    private javax.swing.JCheckBox ninguno;
-    private javax.swing.JCheckBox no;
-    private javax.swing.JTextField segundos;
-    private javax.swing.JCheckBox si;
-    private javax.swing.JCheckBox timer;
-    private javax.swing.JLabel verDificultad;
-    private javax.swing.JLabel verPanel;
-    private javax.swing.JLabel verReloj;
-    private javax.swing.JLabel verSonido;
+    private javax.swing.JLabel labelHoras;
+    private javax.swing.JLabel labelMin;
+    private javax.swing.JLabel labelSec;
+    private javax.swing.JTextField min;
+    private javax.swing.JTextField sec;
     // End of variables declaration//GEN-END:variables
 }
